@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% for dictionary in database %}
+      {{ dictionary[0] }}
+      <br>
+      <br>
+      {% for menu in dictionary[1] %}
+        {{ menu }}
+        <br>
+        <br>
+        {% for item in dictionary[1][menu] %}
+          {{ item }} - {{ dictionary[1][menu][item]["price"]}}
+          {% if dictionary[1][menu][item]["extra_data"] != "" %}
+            <br>
+            {{ dictionary[1][menu][item]["extra_data"] }}
+          {% endif %}
+          <br>
+          <br>
+
+        {% endfor %}
+
+        <br>
+      {% endfor %}
+      <br>
+      <br>
+    {% endfor %}
+  </body>
+</html>
